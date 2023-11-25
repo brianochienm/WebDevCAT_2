@@ -61,8 +61,14 @@
                      </td>
                      <td><?php echo $author["AuthorSuspended"]; ?></td>
                      <td>
-                        [<a href="EditAuth.php?EditId=<?php echo $author["AuthorId"]; ?>">Edit</a>]
-                        [<a href="DelAuth.php?DelId=<?php echo $author["AuthorId"]; ?>" OnClick="return confirm('Are you sure you want to delete the author from the database?');">Del</a>]
+                        <div style="display: flex; justify-content: space-between;">
+                           <div>
+                              [<a href="EditAuth.php?EditId=<?php echo $author["AuthorId"]; ?>">Edit</a>]
+                           </div>
+                           <div>
+                              [<a href="DelAuth.php?DelId=<?php echo $author["AuthorId"]; ?>" OnClick="return confirm('Are you sure you want to delete the author from the database?')">Del</a>]
+                           </div>
+                        </div>
                      </td>
                   </tr>
                   <?php
