@@ -102,7 +102,7 @@
                ?>
             <form action="processes/AutRegistration.php" method="POST">
                <label for="AuthorId">Author Id:</label><br>
-               <input type="text" name="AuthorId" id="AuthorId" value="<?php echo $author["AuthorId"]; ?>" readonly /><br><br>
+               <input type="text" name="AuthorId" id="AuthorId" value="<?php echo $author["AuthorId"]; ?>" required /><br><br>
                <label for="AuthorFullName">Author Full Name:</label><br>
                <input type="text" name="AuthorFullName" id="AuthorFullName" value="<?php echo $author["AuthorFullName"]; ?>" maxlength="60" /><br><br>
                <label for="AuthorEmail">Author Email:</label><br>
@@ -110,7 +110,11 @@
                <label for="AuthorAddress">Author Address:</label><br>
                <input type="text" name="AuthorAddress" id="AuthorAddress" value="<?php echo $author["AuthorAddress"]; ?>" maxlength="60" /><br><br>
                <label for="AuthorDateOfBirth">Date Of Birth:</label><br>
-               <input type="date" name="AuthorDateOfBirth" id="AuthorDateOfBirth" value="<?php echo $author["AuthorDateOfBirth"]; ?>" required /><br><br>
+               <?php
+                  // Format the date from the database
+                  $formattedDateOfBirth = date('Y-m-d', strtotime($author["AuthorDateOfBirth"]));
+                  ?>
+               <input type="date" name="AuthorDateOfBirth" id="AuthorDateOfBirth" value="<?php echo $formattedDateOfBirth; ?>" required /><br><br>
                <label for="AuthorBiography">Author Biography:</label><br>
                <textarea name="AuthorBiography" id="AuthorBiography" rows="10" required><?php echo $author["AuthorBiography"]; ?></textarea>
                <br><br>
